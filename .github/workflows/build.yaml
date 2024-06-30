@@ -18,7 +18,7 @@ jobs:
         id: build
         uses: krynv/build-godot-action@v1.0.0
         with:
-          name: example
+          name: raytruxian
           preset: ${{ matrix.platform }}
           debugMode: "true"
       - name: Upload Artifact
