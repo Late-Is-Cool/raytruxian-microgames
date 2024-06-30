@@ -19,23 +19,35 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -284.0
+offset_right = 349.0
+offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 100
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-text = "raytruxian inc. microgames"
+theme_override_colors/font_shadow_color = Color(0.525101, 0.525101, 0.525101, 1)
+theme_override_colors/font_outline_color = Color(0.762404, 0.762404, 0.762404, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 100
+text = "raytruxian inc.
+microgames"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MenuButtons" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_27vi3")]
+[node name="MenuButtons" parent="VBoxContainer" instance=ExtResource("1_27vi3")]
 layout_mode = 2

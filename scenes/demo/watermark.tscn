@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7ev311s4mfy0"]
+
+[node name="Watermark" type="CanvasLayer"]
+layer = 5
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.219608)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -158.0
+offset_right = 609.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "most game assets by KenneyNL (www.kenney.nl)
+jingle sound effects from warioware
+toy version
+changes will be made during development"
+horizontal_alignment = 1
+vertical_alignment = 1

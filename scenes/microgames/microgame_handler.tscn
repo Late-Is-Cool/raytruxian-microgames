@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://yw78iwnhutfn"]
+
+[ext_resource type="Texture2D" uid="uid://bi1vt3xlgm3u6" path="res://assets/demo/ui/star.png" id="1_kvq0r"]
+[ext_resource type="Script" path="res://scripts/microgame_handler.gd" id="1_yrhmd"]
+[ext_resource type="PackedScene" uid="uid://belms1kcy2tlo" path="res://scenes/microgames/2d/TestGame.tscn" id="2_j7v64"]
+[ext_resource type="PackedScene" uid="uid://ckd2wmp2a4xh" path="res://scenes/microgames/3d/TestGame3D.tscn" id="3_b38cn"]
+[ext_resource type="AudioStream" uid="uid://bpck3qvvd7uay" path="res://assets/sfx/startup.mp3" id="3_k34qk"]
+
+[node name="MicrogameHandler" type="Node"]
+script = ExtResource("1_yrhmd")
+microgames = Array[PackedScene]([ExtResource("2_j7v64"), ExtResource("3_b38cn")])
+
+[node name="MainAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k34qk")
+
+[node name="MainScreen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainScreen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -331.0
+offset_right = 331.0
+offset_bottom = 220.0
+grow_horizontal = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainScreen/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Life1" type="TextureRect" parent="MainScreen/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_kvq0r")
+stretch_mode = 2
+
+[node name="Life2" type="TextureRect" parent="MainScreen/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_kvq0r")
+stretch_mode = 2
+
+[node name="Life3" type="TextureRect" parent="MainScreen/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_kvq0r")
+stretch_mode = 2
+
+[node name="Life4" type="TextureRect" parent="MainScreen/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_kvq0r")
+stretch_mode = 2
+
+[node name="CommandLabel" type="Label" parent="MainScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = -62.0
+offset_right = 269.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 90
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ProgressBar" type="ProgressBar" parent="TimerUI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+show_percentage = false

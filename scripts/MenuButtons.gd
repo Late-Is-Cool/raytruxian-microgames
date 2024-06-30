@@ -1,7 +1,7 @@
 extends Control
 
 func _on_play_pressed():
-	Transition.change_scene("res://scenes/save_scene.tscn")
+	Transition.change_scene("res://scenes/microgames/microgame_handler.tscn")
 
 func _on_options_pressed():
 	print_rich("[rainbow]options pressed[/rainbow]")
