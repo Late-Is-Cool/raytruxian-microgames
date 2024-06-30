@@ -89,6 +89,7 @@ one_shot = true
 
 [node name="TimerUI" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="TimerUI"]
 anchors_preset = 12
