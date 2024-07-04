@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="Transition" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_5fmiq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

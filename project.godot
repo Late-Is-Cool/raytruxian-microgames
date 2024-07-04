@@ -49,3 +49,11 @@ folder_colors={
 "res://scenes/": "purple",
 "res://scripts/": "blue"
 }
+
+[filesystem]
+
+import/blender/enabled=false
+
+[gui]
+
+theme/custom_font="res://assets/fonts/chango.ttf"

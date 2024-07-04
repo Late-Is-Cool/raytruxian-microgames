@@ -1,14 +1,79 @@
-[gd_scene load_steps=6 format=3 uid="uid://yw78iwnhutfn"]
+[gd_scene load_steps=9 format=3 uid="uid://yw78iwnhutfn"]
 
 [ext_resource type="Texture2D" uid="uid://bi1vt3xlgm3u6" path="res://assets/demo/ui/star.png" id="1_kvq0r"]
-[ext_resource type="Script" path="res://scripts/microgame_handler.gd" id="1_yrhmd"]
-[ext_resource type="PackedScene" uid="uid://belms1kcy2tlo" path="res://scenes/microgames/2d/TestGame.tscn" id="2_j7v64"]
-[ext_resource type="PackedScene" uid="uid://ckd2wmp2a4xh" path="res://scenes/microgames/3d/TestGame3D.tscn" id="3_b38cn"]
+[ext_resource type="Script" path="res://scripts/microgames/microgame_handler.gd" id="1_yrhmd"]
 [ext_resource type="AudioStream" uid="uid://bpck3qvvd7uay" path="res://assets/sfx/startup.mp3" id="3_k34qk"]
+[ext_resource type="PackedScene" uid="uid://daf4egn4jk8g" path="res://scenes/microgames/2d/WaterTainer.tscn" id="4_c01dn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4f87"]
+font_size = 75
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ipmu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:label_settings:outline_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+
+[sub_resource type="Animation" id="Animation_1sy4g"]
+resource_name = "indicate"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [75, 125, 125, 75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:label_settings:outline_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [20, 30, 30, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_quwdn"]
+_data = {
+"RESET": SubResource("Animation_ipmu8"),
+"indicate": SubResource("Animation_1sy4g")
+}
 
 [node name="MicrogameHandler" type="Node"]
 script = ExtResource("1_yrhmd")
-microgames = Array[PackedScene]([ExtResource("2_j7v64"), ExtResource("3_b38cn")])
+microgames = Array[PackedScene]([ExtResource("4_c01dn")])
 
 [node name="MainAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k34qk")
@@ -83,6 +148,24 @@ theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 90
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Score" type="Label" parent="MainScreen"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_n4f87")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimationPlayer" parent="MainScreen/Score"]
+libraries = {
+"": SubResource("AnimationLibrary_quwdn")
+}
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

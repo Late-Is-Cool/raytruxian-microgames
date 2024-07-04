@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://daf4egn4jk8g"]
+
+[ext_resource type="Script" path="res://scripts/microgames/2d/WaterTainer.gd" id="1_7um2d"]
+[ext_resource type="Texture2D" uid="uid://gm8eopy7glr1" path="res://assets/sprites/microgames/2d/cloud.png" id="2_2b1aj"]
+[ext_resource type="Texture2D" uid="uid://lhs3pbxwspww" path="res://assets/sprites/microgames/2d/droplet.png" id="3_30ohm"]
+[ext_resource type="Texture2D" uid="uid://cd781ndak2qy8" path="res://assets/sprites/microgames/2d/bowl.png" id="4_4o4y2"]
+
+[node name="WaterTainer" type="Node2D"]
+script = ExtResource("1_7um2d")
+command = "Catch!"
+play_type = 1
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(135, 113)
+scale = Vector2(1.6381, 1.6381)
+texture = ExtResource("2_2b1aj")
+
+[node name="Droplet" type="Sprite2D" parent="Cloud"]
+position = Vector2(-1.22093, 16.4825)
+scale = Vector2(1.01066, 1.01066)
+texture = ExtResource("3_30ohm")
+
+[node name="Bowl" type="Sprite2D" parent="."]
+position = Vector2(590.235, 611)
+scale = Vector2(1.70588, 1.70588)
+texture = ExtResource("4_4o4y2")

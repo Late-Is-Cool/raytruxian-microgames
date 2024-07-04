@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func change_scene(scene: String):
+func change_scene(scene: String) -> void:
 	$AnimationPlayer.play("fade")
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file(scene)

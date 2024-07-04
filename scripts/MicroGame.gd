@@ -12,34 +12,35 @@ enum PlayType {
 	BOTH,
 }
 
-enum GameType {
-	TWO_DIMENSIONAL = 0,
-	THREE_DIMENSIONAL,
-}
+# enum GameType {
+# 	TWO_DIMENSIONAL = 0,
+# 	THREE_DIMENSIONAL,
+# }
 
-@export var microgame_length := MicroGameType.SHORT
+@export var microgame_length: MicroGameType = MicroGameType.SHORT
 @export var command: String = "Play!"
-@export var play_type := PlayType.KEYBOARD
-@export var game_type := GameType.TWO_DIMENSIONAL
+@export var play_type: PlayType = PlayType.KEYBOARD
+# @export var game_type: GameType = GameType.TWO_DIMENSIONAL
 
-var started: bool
-var won_microgame: bool
+@onready var won_microgame: bool = false
+@onready var difficulty_level: int = 0
+
+var speed_float: float = 0.0
+
+var started: bool = false
 
 signal win()
 signal lose()
-	
-func start_game():
+
+func start_game() -> void:
 	print("sometihng")
 	started = true
-	won_microgame = false
-	$GameTimer.wait_time = microgame_length
-	$GameTimer.timeout.connect(game_lose)
-	$GameTimer.start()
 
-func game_win():
+func game_win() -> void:
+	won_microgame = true
 	win.emit(self, "win")
 	
-func game_lose():
+func game_lose() -> void:
 	if won_microgame:
 		print("win")
 		return
